@@ -4,7 +4,7 @@ const { Pool } = require("pg");
 require("dotenv").config(); // .env 파일에 정의된 환경변수 로드
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*" })); // 모든 도메인에서의 요청 허용
 app.use(express.json());
 
 const pool = new Pool({
