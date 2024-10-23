@@ -12,7 +12,7 @@ const pool = new Pool({
   // ssl: {
   //   rejectUnauthorized: false,
   // },
-  ssl: true,
+  // ssl: true,
 });
 
 // 데이터베이스 연결 테스트
