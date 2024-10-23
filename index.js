@@ -34,6 +34,7 @@ app.post("/api/guestbook", async (req, res) => {
     ]);
     res.json(result.rows[0]);
   } catch (err) {
+    console.error("Error adding guestbook entry:", err.message); // 추가된 로그
     res.status(500).json({ error: err.message });
   }
 });
@@ -44,6 +45,7 @@ app.get("/api/guestbook", async (req, res) => {
     const result = await pool.query("SELECT id, name, message, created_at FROM guestbook ORDER BY id DESC");
     res.json(result.rows);
   } catch (err) {
+    console.error("Error fetching guestbook entries:", err.message); // 추가된 로그
     res.status(500).json({ error: err.message });
   }
 });
@@ -64,6 +66,7 @@ app.put("/api/guestbook/:id", async (req, res) => {
       res.status(403).json({ error: "비밀번호가 일치하지 않습니다." });
     }
   } catch (err) {
+    console.error("Error updating guestbook entry:", err.message); // 추가된 로그
     res.status(500).json({ error: err.message });
   }
 });
@@ -81,6 +84,7 @@ app.delete("/api/guestbook/:id", async (req, res) => {
       res.status(403).json({ error: "비밀번호가 일치하지 않습니다." });
     }
   } catch (err) {
+    console.error("Error deleting guestbook entry:", err.message); // 추가된 로그
     res.status(500).json({ error: err.message });
   }
 });
