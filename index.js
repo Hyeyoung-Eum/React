@@ -9,9 +9,10 @@ app.use(express.json());
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, // 환경변수로부터 DB URL 로드
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // },
+  ssl: true,
 });
 
 // 데이터베이스 연결 테스트
